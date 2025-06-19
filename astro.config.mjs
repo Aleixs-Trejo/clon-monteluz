@@ -8,6 +8,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://Aleixs-Trejo.github.io',
-  base: 'clon-monteluz',
+  site: 'https://aleixs-trejo.github.io',
+  base: '/clon-monteluz/',
 });
