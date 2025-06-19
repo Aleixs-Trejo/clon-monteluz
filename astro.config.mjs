@@ -9,6 +9,5 @@ export default defineConfig({
   base: '/clon-monteluz/',
   vite: {
     plugins: [tailwindcss()]
-  },
-  output: 'static',
+  }
 });
