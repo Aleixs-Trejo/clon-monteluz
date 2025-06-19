@@ -9,5 +9,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: 'https://aleixs-trejo.github.io',
-  base: '/clon-monteluz/',
+  base: 'clon-monteluz',
 });
