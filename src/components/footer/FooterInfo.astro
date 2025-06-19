@@ -1,0 +1,41 @@
+---
+// Assets
+import iconLogo from "@assets/img/logotipo-footer-clinica-monteluz.webp";
+import iconFacebookWhite from "@assets/icons/icon-facebook-white.svg";
+import iconInstagramWhite from "@assets/icons/icon-instagram-white.svg";
+import iconYoutubeWhite from "@assets/icons/icon-youtube-white.svg";
+import iconTiktokWhite from "@assets/icons/icon-tiktok-white.svg";
+import iconLinkedinWhite from "@assets/icons/icon-linkedin-white.svg";
+
+// Components
+import LinkSocial from "./LinkSocial.astro";
+
+// Array
+const socials = [
+  { icon: iconFacebookWhite, href: "https://www.facebook.com/ClinicaMonteluz/" },
+  { icon: iconInstagramWhite, href: "https://www.instagram.com/clinica_monteluz/" },
+  { icon: iconYoutubeWhite, href: "https://www.youtube.com/@clinicamonteluz6798" },
+  { icon: iconTiktokWhite, href: "https://www.tiktok.com/@clinicamonteluz" },
+  { icon: iconLinkedinWhite, href: "https://pe.linkedin.com/company/monteluz-clinica" },
+];
+---
+
+<article class="flex flex-col gap-4 lg:flex-grow">
+  <figure class="min-w-50 w-full max-w-70 flex items-center justify-center anim-fade-up">
+    <img
+      src={iconLogo.src}
+      alt="logo"
+      class="w-full h-auto object-contain object-center"
+    />
+  </figure>
+  <p class="text-nav-bg anim-fade-up">
+    Somos una institución médica de gran prestigio con más
+    de 25 años de experiencia en la atención de la salud.
+  </p>
+  <div class="flex flex-col gap-2">
+    <span class="text-nav-bg anim-fade-up">Síguenos en:</span>
+    <ul class="flex items-center gap-2 flex-wrap">
+      {socials.map(social => <LinkSocial {...social} />)}
+    </ul>
+  </div>
+</article>

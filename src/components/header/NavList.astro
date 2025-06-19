@@ -1,0 +1,24 @@
+---
+// Assets
+import iconHome from '@assets/icons/icon-home-white.svg';
+import iconStaff from '@assets/icons/icon-staff-white.svg';
+import iconSpeciality from '@assets/icons/icon-speciality-white.svg';
+import iconSede from '@assets/icons/icon-sede.white.svg';
+
+// Array
+const navList = [
+  { icon: iconHome, text: 'Inicio' },
+  { icon: iconStaff, text: 'Nosotros' },
+  { icon: iconSpeciality, text: 'Servicios' },
+  { icon: iconStaff, text: 'Staff Médico' },
+  { icon: iconSpeciality, text: 'Especialidades' },
+  { icon: iconSede, text: 'Sedes' },
+]
+
+// Component
+import NavElement from './NavElement.astro';
+---
+
+<ul class="flex flex-col md:flex-row md:gap-6">
+  {navList.map(list => <NavElement {...list} />)}
+</ul>

@@ -1,0 +1,35 @@
+---
+// Assets
+import imgPartos from "@assets/img/partos-300x300.webp";
+import imgCirugias from "@assets/img/campana-cirugia-300x300.webp";
+import imgTerapia from "@assets/img/terapia-lenguaje-768x768.webp";
+
+// Components
+import SectionContainer from "./SectionContainer.astro";
+import CardWellbeing from "@components/CardWellbeing.astro";
+import LinkButton from "@components/LinkButton.astro";
+
+// Array
+const wellbeings = [
+  { img: imgPartos, title: "Partos y Cesáreas" },
+  { img: imgCirugias, title: "Campaña de Cirugías" },
+  { img: imgTerapia, title: "Terapia de Lenguaje" },
+];
+---
+
+<SectionContainer>
+  <div class="w-9/10 mx-auto max-w-7xl flex flex-col gap-10">
+    <div class="flex flex-col w-full">
+      <h2 class="text-center w-9/10 mx-auto text-nav-bg font-bold text-clamp-hero leading-tight anim-fade-up overflow-hidden">
+        Enfocados en tu <span class="text-anchor-bg-light">bienestar</span>.
+      </h2>
+      <p class="text-nav-bg text-center text-sm anim-fade-up overflow-hidden">
+        Brindamos paquetes promocionales con el más alto estándar de servicio.
+      </p>
+    </div>
+    <section class="grid w-9/10 mx-auto max-w-80 gap-8 md:max-w-5xl md:gap-10 md:grid-cols-3">
+      {wellbeings.map((wellbeing) => <CardWellbeing {...wellbeing} />)}
+    </section>
+    <LinkButton title="Ver promociones" additionalClass="anim-fade-up" />
+  </div>
+</SectionContainer>

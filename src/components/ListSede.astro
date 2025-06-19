@@ -1,0 +1,20 @@
+---
+// Assets
+import iconLocation from "@assets/icons/icon-location-pink.svg";
+
+// Interface
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<li class="flex items-start gap-1 w-full anim-fade-up overflow-hidden">
+  <img
+    src={iconLocation.src}
+    alt="icon"
+    class="w-5 h-5 mt-1 flex-shrink-0 object-contain object-center"
+  />
+  <p class="text-base text-white leading-5">{text}</p>
+</li>

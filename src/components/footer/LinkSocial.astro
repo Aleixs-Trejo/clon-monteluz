@@ -1,0 +1,24 @@
+---
+// Interface
+interface Props {
+  icon: { src: string };
+  href: string;
+}
+
+const { icon, href } = Astro.props;
+---
+
+<li class="flex anim-fade-up">
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="w-8 h-8 flex-shrink-0 rounded-full flex items-center justify-center transition-colors duration-300 bg-nav-bg hover:bg-anchor-bg-light"
+  >
+    <img
+      src={icon.src}
+      alt="icon"
+      class="w-4 h-4 object-contain object-center m-auto"
+    />
+  </a>
+</li>

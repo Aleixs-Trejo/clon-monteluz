@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-nav-bg: #404385;
+  --color-nav-bg-opacity: #595dad;
+  --color-card-bg: #66699E;
+  --color-card-bg-opacity: #66699e77;
+  --color-anchor-bg-strong: #2d3663;
+  --color-anchor-bg-light: #e44a88;
+  --color-pink-dark: #dc2268;
+  --color-paragraph: #414141;
+  --color-section-bg: #c4c4c488;
+  --color-white-secondary: #ededed;
+
+
+  --font-primary: "Poppins", sans-serif;
+
+  --text-clamp-nav: clamp(0.875rem, 1.5vw, 1rem);
+  --text-clamp-hero: clamp(1.25rem, 5vw, 2rem);
+  --text-clamp-paragraph: clamp(0.875rem, 5vw, 1rem);
+  --text-clamp-cta: clamp(0.75rem, 5vw, 0.875rem);
+
+  --text-title-section: clamp(1.5rem, 5vw,1.875rem);
+
+  --shadow-card: 1px 1px 8px 4px rgba(0, 0, 0, 0.2);
+
+  --animate-splash: splash 2.5s ease-in-out;
+
+  @keyframes splash {
+    0%,
+    100% {
+      transform: translateY(50%);
+      opacity: 0;
+    }
+  
+    25%,
+    75% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+body {
+  @apply font-primary;
+}
+
+body:has(.nav__menu--active) {
+  @apply overflow-hidden;
+}
+
+.anim-fade-up {
+  @apply transform transition-all duration-500 ease-in-out;
+}
+
+.nav__menu {
+  @apply transform -translate-x-full md:translate-0;
+}
+
+.nav__menu--active {
+  @apply transform translate-x-0;
+}
+
+.swiper {
+  @apply px-6;
+}
+
+.swiper-slide {
+  @apply h-auto;
+}

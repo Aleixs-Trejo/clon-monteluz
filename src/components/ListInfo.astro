@@ -1,0 +1,20 @@
+---
+// Assets
+import iconCheck from "@assets/icons/icon-check-circle-pink.svg";
+
+// Interface
+interface Props {
+  text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<li class="flex items-start gap-2 w-full anim-fade-up overflow-hidden">
+  <img
+    src={iconCheck.src}
+    alt="icon"
+    class="w-4 h-4 mt-1 flex-shrink-0 object-contain object-center"
+  />
+  <p class="text-base text-paragraph leading-5 overflow-hidden">{text}</p>
+</li>

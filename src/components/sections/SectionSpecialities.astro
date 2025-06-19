@@ -1,0 +1,30 @@
+---
+// Components
+import SectionContainer from "./SectionContainer.astro";
+import CardSpeciality from "@components/CardSpeciality.astro";
+
+// Assets
+import iconGine from '@assets/icons/icon-gine-blue.svg';
+import iconObstetricia from '@assets/icons/icon-obstetricia-blue.svg';
+import iconPediatria from '@assets/icons/icon-pediatria-blue.svg';
+import iconMedicina from '@assets/icons/icon-medicina-blue.svg';
+
+// Array
+const specialities = [
+  { icon: iconGine, text: 'Ginecología' },
+  { icon: iconObstetricia, text: 'Obstetricia' },
+  { icon: iconPediatria, text: 'Pediatría' },
+  { icon: iconMedicina, text: 'Medicina General' },
+];
+---
+
+<SectionContainer>
+  <div class="flex flex-col gap-9 w-full">
+    <h2 class="w-9/10 mx-auto text-nav-bg text-center text-clamp-hero font-bold px-4 anim-fade-up overflow-hidden">
+      Descubre todo lo que la <span class="text-anchor-bg-light">Clínica Monteluz</span> tiene para ofrecerte.
+    </h2>
+    <section class="w-9/10 mx-auto grid gap-6 max-w-96md:max-w-3xl md:grid-cols-2 lg:grid-cols-4 lg:max-w-6xl">
+      {specialities.map(speciality => <CardSpeciality {...speciality} />)}
+    </section>
+  </div>
+</SectionContainer>

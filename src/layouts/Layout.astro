@@ -1,0 +1,163 @@
+---
+// CSS
+import "../styles/global.css";
+
+// Interface
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+}
+
+// SEO
+import { siteInfo } from "@libs/consts/siteInfo";
+
+const {
+  title = siteInfo.title,
+  description = siteInfo.description,
+  image = siteInfo.image,
+  url = siteInfo.url,
+} = Astro.props;
+
+// Components
+import Splash from "@components/Splash.astro";
+import Header from "@components/header/Header.astro";
+import Footer from "@components/footer/Footer.astro";
+---
+
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon-32x32.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#18181b" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- SEO -->
+    <meta name="description" content={description} />
+    <meta name="author" content="Alesis" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+  <body class="body font-primary">
+    <Splash />
+    <Header />
+    <main class="flex flex-col pt-22">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Splash
+      const $body = document.body;
+      const $splash = document.getElementById('splash');
+      const secDuration = 2000;
+
+      $body.classList.add('overflow-hidden');
+
+      const removeSplash = () => {
+        const delay = Math.max(0, secDuration );
+        
+        setTimeout(() => {
+          if (!$splash) return;
+          $splash?.classList.add('opacity-0', 'pointer-events-none');
+
+          setTimeout(() => {
+            $splash?.remove();
+            $body.classList.remove('overflow-hidden');
+          }, 500);
+        }, delay);
+      };
+
+      document.readyState === 'complete'
+        ? removeSplash()
+        : window.addEventListener('load', removeSplash);
+
+      // Animacion de scroll
+      const $elements = document.querySelectorAll('.anim-fade-up');
+
+      // Inicializar elementos para animación
+      $elements.forEach(el => {
+        el.classList.add('opacity-0');
+        const elTop = el.getBoundingClientRect().top + window.scrollY;
+        elTop < window.scrollY ? el.classList.add('-translate-y-15') : el.classList.add('translate-y-15');
+      });
+
+      let lastScrollY = window.scrollY;
+
+      const observerAnim = new IntersectionObserver((entries) => {
+        const currentScrollY = window.scrollY;
+        const scrollDown = window.scrollY > lastScrollY;
+        const scrollUp = window.scrollY < lastScrollY;
+
+        entries.forEach(entry => {
+          const el = entry.target;
+
+          if (entry.isIntersecting) {
+            el.classList.remove('opacity-0', 'translate-y-15', '-translate-y-15');
+            el.classList.add('opacity-100', 'translate-y-0');
+          } else {
+            // Sale del viewport
+            if (scrollDown) {
+              // Desaparece hacia arriba
+              el.classList.remove('translate-y-0', 'opacity-100');
+              el.classList.add('opacity-0', '-translate-y-15');
+            }
+            if (scrollUp) {
+              // Desaparece hacia abajo
+              el.classList.remove('translate-y-0', 'opacity-100');
+              el.classList.add('opacity-0', 'translate-y-15');
+            }
+          }
+
+          lastScrollY = currentScrollY;
+        });
+      }, {
+        root: null,
+        threshold: 0.2
+      });
+
+      $elements.forEach(el => observerAnim.observe(el));
+
+
+      window.addEventListener("load", () => {
+        $elements.forEach(el => observerAnim.observe(el));
+      });
+
+      window.addEventListener("resize", () => {
+        $elements.forEach(el => observerAnim.observe(el));
+      });
+
+      window.addEventListener("scroll", () => {
+        $elements.forEach(el => observerAnim.observe(el));
+      });
+    });
+  </script>
+</html>

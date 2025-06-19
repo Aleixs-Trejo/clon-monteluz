@@ -1,0 +1,36 @@
+---
+// Components
+import LinkButton from "@components/LinkButton.astro";
+
+// Interface
+interface Props {
+  img: { src: string };
+  title: string;
+  description: string;
+  additionalClass?: string;
+}
+
+const { img, title, description, additionalClass } = Astro.props;
+---
+
+<article class={`${additionalClass ?? ""}`}>
+  <div class="py-2 h-full flex transform transition-transform duration-300 hover:scale-102">
+    <div class="w-full flex flex-col rounded-xl overflow-hidden shadow-xs shadow-gray-400">
+      <figure class="w-full">
+        <img
+          src={img.src}
+          alt="image"
+          class="w-full h-auto object-contain object-center"
+        />
+      </figure>
+      <div class="p-2 h-full bg-white flex">
+        <div class="p-4 flex flex-col gap-4 items-center text-center overflow-hidden">
+          <h3 class="text-nav-bg text-center font-bold">{title}</h3>
+          <span class="w-9 h-0.5 bg-nav-bg"></span>
+          <p class="font-light text-sm text-center text-nav-bg text-pretty">{description}</p>
+          <LinkButton title="Ver más" />
+        </div>
+      </div>
+    </div>
+  </div>
+</article>

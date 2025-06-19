@@ -1,0 +1,28 @@
+---
+// Components
+import SectionContainer from "./SectionContainer.astro";
+
+// Assets
+import imgSalud from "@assets/img/tu-salud-en-buenas-manos-clinica-monteluz.webp";
+---
+
+<SectionContainer additionalClass="bg-section-bg">
+  <div class="w-9/10 max-w-7xl mx-auto flex items-center justify-center">
+    <div class="flex flex-col items-center gap-8 md:flex-row-reverse md:gap-0 w-full">
+      <figure class="w-4/5 mx-auto max-w-56 flex items-center justify-center flex-shrink-0 md:w-1/2 md:basis-1/2 md:max-w-max anim-fade-up overflow-hidden">
+        <img
+          src={imgSalud.src}
+          alt="Tu salud en buenas manos"
+          class="w-full h-auto object-contain object-center"
+        />
+      </figure>
+      <div class="flex flex-col items-center gap-2 md:w-1/2 md:basis-1/2 md:gap-6 md:px-4 anim-fade-up w-full overflow-hidden">
+        <h2 class="color-nav-bg text-center text-nav-bg font-bold leading-6 text-clamp-hero text-pretty">Tu salud en buenas manos.</h2>
+        <p class="text-center text-paragraph font-light text-clamp-paragraph">
+          Nuestro compromiso para atenderte de manera personalizada.
+        </p>
+        <a href="#" class="px-6 py-3 rounded-3xl font-semibold text-clamp-cta border-2 border-nav-bg text-nav-bg inline-block w-max mx-auto max-w-full text-center">Agenda tu cita</a>
+      </div>
+    </div>
+  </div>
+</SectionContainer>

@@ -1,0 +1,39 @@
+---
+// Assets
+import iconMedicalInfo from "@assets/icons/icon-info-blue.svg";
+
+// Components
+import SectionContainer from "./SectionContainer.astro";
+import ListInfo from "@components/ListInfo.astro";
+
+// Array
+const infos = [
+  { text: "Comunícate con nuestras asesoras para resolver todas tus dudas." },
+  { text: "Un Staff de médicos con experiencia para darte el mejor servicio." },
+  { text: "Más de 24 especialidades médicas." }, 
+  { text: "Busca los resultados de laboratorio aquí." }, 
+];
+---
+
+<SectionContainer>
+  <div class="w-9/10 mx-auto max-w-5xl flex flex-col gap-6 md:flex-row">
+    <div class="w-full flex flex-col gap-4 md:w-1/2 md:basis-1/2">
+      <h2 class="mx-auto text-nav-bg text-start text-clamp-hero font-bold py-4 overflow-hidden md:leading-10 anim-fade-up w-full">
+        Agenda tus citas médicas de manera <span class="text-anchor-bg-light">rápida y segura</span>.
+      </h2>
+      <ul class="flex flex-col gap-3">
+        {infos.map(info => <ListInfo {...info} />)}
+      </ul>
+      <a href="#" class="px-7 py-3 w-max max-w-full mx-auto text-base font-semibold inline-block text-white text-center bg-nav-bg rounded-4xl anim-fade-up">
+        Agenda tu cita
+      </a>
+    </div>
+    <figure class="w-full md:w-1/2 md:basis-1/2 anim-fade-up">
+      <img
+        src={iconMedicalInfo.src}
+        alt="icon"
+        class="w-full h-auto object-contain object-center"
+      />
+    </figure>
+  </div>
+</SectionContainer>

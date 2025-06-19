@@ -1,0 +1,32 @@
+---
+// Assets
+import iconArrow from "../assets/icons/icon-arrow-white.svg";
+
+// Interface
+interface Props {
+  icon: { src: string };
+  text: string;
+}
+
+const { icon, text } = Astro.props;
+---
+
+<article
+  class="rounded-xl bg-card-bg flex items-center justify-center hover:bg-nav-bg hover:scale-103 anim-fade-up overflow-hidden w-full"
+>
+  <a href="#" class="flex flex-col items-center gap-2 p-5 w-full">
+    <img
+      src={icon.src}
+      alt={`${text} icon`}
+      class="w-12 h-12 aspect-square object-contain object-center"
+    />
+    <div class="flex items-center w-full overflow-hidden">
+      <span class="text-base font-medium text-white text-center overflow-hidden">{text}</span>
+      <img
+        src={iconArrow.src}
+        alt="arrow icon"
+        class="w-6 h-6 object-contain object-center"
+      />
+    </div>
+  </a>
+</article>

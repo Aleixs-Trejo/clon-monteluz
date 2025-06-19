@@ -1,0 +1,86 @@
+---
+// Assets
+import imgProgramaMaterno from "@assets/img/programas-maternos-300x300.webp";
+import imgCirugiasClinicas from "@assets/img/cirugias-clinica-300x300.webp";
+import imgEspecialidades from "@assets/img/especialidades-medicas-clinica-monteluz-300x300.webp";
+import imgTomografia from "@assets/img/tomografia-clinica-monteluz-300x300.webp";
+
+// Components
+import SectionContainer from "./SectionContainer.astro";
+import LinkButton from "@components/LinkButton.astro";
+import CardServiceSlide from "@components/CardServiceSlide.astro";
+import CardService from "@components/CardService.astro";
+
+// Array
+const services = [
+  {
+    img: imgProgramaMaterno,
+    title: "Programas Maternos",
+    description: "Controles prenatales, tripacks ecográficos, partos y cesáreas.",
+  },
+  {
+    img: imgCirugiasClinicas,
+    title: "Cirugías",
+    description: "Cirugía convencional y/o laparascópica, rinoplastía, cirugías pediátricas y más.",
+  },
+  {
+    img: imgEspecialidades,
+    title: "Cirugías",
+    description: "Ginecología, obstetricia, pediatría, cirugía general, medicina interna y más.",
+  },
+  {
+    img: imgTomografia,
+    title: "Apoyo al Diagnóstico",
+    description: "Tomografia, ecografía, mamografía, rayos X, etc.",
+  },
+];
+---
+
+<SectionContainer additionalClass="bg-section-bg">
+  <div class="flex flex-col gap-9 w-full">
+    <h2 class="text-nav-bg text-center text-clamp-hero font-bold px-4 anim-fade-up overflow-hidden">
+      Nuestros Servicios
+    </h2>
+    <div class="flex flex-col gap-4 md:hidden">
+      <section class="swiper swiper__services w-full anim-fade-up overflow-hidden">
+        <div class="swiper-wrapper">
+          {services.map((service) => (
+            <CardServiceSlide
+              {...service}
+              additionalClass="swiper-slide"
+            />
+          ))}
+        </div>
+      </section>
+      <LinkButton title="Ver más servicios" additionalClass="anim-fade-up"/>
+    </div>
+    <div class="hidden w-9/10 mx-auto max-w-7xl md:flex md:flex-col md:gap-6">
+      <section class="hidden md:grid md:grid-cols-2 md:gap-8 lg:grid-cols-4">
+        {services.map((service) => (
+          <CardService
+            {...service}
+          />
+        ))}
+      </section>
+      <LinkButton title="Ver más servicios" additionalClass="anim-fade-up"/>
+    </div>
+  </div>
+</SectionContainer>
+<script type="module">
+  import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+  const swiper = new Swiper(".swiper__services", {
+    slidesPerView: 1.1,
+    spaceBetween: 16,
+    breakpoints: {
+      425: {
+        slidesPerView: 1.4,
+        spaceBetween: 24,
+      },
+      575: {
+        slidesPerView: 1.8,
+        spaceBetween: 40,
+      }
+    }
+  });
+</script>

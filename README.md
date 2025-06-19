@@ -1,47 +1,11 @@
-# Astro Starter Kit: Minimal
+## Clon de Landing Page: Clínica Monteluz
+Este proyecto es un clon de la landing page de la "Clínica Monteluz", desarrollado con fines prácticos y educativos. Mi objetivo principal fue afianzar conocimientos en el uso de Astro como framework web y Tailwind CSS para el diseño y la estilización.
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+He replicado la estructura y el diseño visual de la página original para simular un escenario de desarrollo real, centrándome en la implementación de componentes y la aplicación de estilos de manera eficiente.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+### Tecnologías Utilizadas:
+- Astro: Para la construcción de la interfaz de usuario y la gestión de la arquitectura del proyecto.
+- Tailwind CSS: Para un desarrollo rápido y eficiente del diseño, utilizando sus utilidades de bajo nivel.
+- Swiper: Para la creación de componentes de presentación de información.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Este repositorio demuestra la capacidad de crear interfaces web modernas y responsivas utilizando herramientas actuales del ecosistema de desarrollo front-end.

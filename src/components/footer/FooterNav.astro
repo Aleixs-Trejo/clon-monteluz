@@ -1,0 +1,21 @@
+---
+// Components
+import FooterNavLink from "./FooterNavLink.astro";
+
+// Array
+const navLinks = [
+  { href: '#', text: 'Nuestros Servicios' },
+  { href: '#', text: 'Especialidades' },
+  { href: '#', text: 'Sedes' },
+  { href: '#', text: 'Promociones' },
+  { href: '#', text: 'Programas Maternos' },
+];
+---
+
+
+<article class="flex flex-col gap-3 lg:flex-grow">
+  <h2 class="text-nav-bg font-semibold text-clamp-hero leading-tight py-4 anim-fade-up">Lo más buscado</h2>
+  <ul class="flex flex-col gap-1">
+    {navLinks.map(nav => <FooterNavLink {...nav} />)}
+  </ul>
+</article>

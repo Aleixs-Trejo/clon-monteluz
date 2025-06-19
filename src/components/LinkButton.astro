@@ -1,0 +1,29 @@
+---
+// Assets
+import iconArrowWhite from "@assets/icons/icon-arrow-right-white.svg";
+import iconArrowBlue from "@assets/icons/icon-arrow-right-blue.svg";
+
+// Interface
+interface Props {
+  title: string;
+  additionalClass?: string;
+}
+
+const { title, additionalClass } = Astro.props;
+---
+
+<a href="#" class={`group w-max px-6 max-w-full py-2 mt-auto flex items-center justify-center gap-1 rounded-3xl mx-auto border-2 transition-colors duration-300 border-nav-bg bg-transparent hover:bg-nav-bg overflow-hidden md:overflow-visible ${additionalClass ?? ""}`}>
+  <span class="text-nav-bg font-semibold text-center text-sm transition-colors duration-300 group-hover:text-white">{title}</span>
+  <figure class="flex items-center justify-center w-6 flex-shrink-0 relative">
+    <img
+      src={iconArrowWhite.src}
+      alt="arrow icon"
+      class="w-3 h-3 absolute m-auto object-contain object-center transition-opacity duration-300 opacity-0 group-hover:opacity-100"
+    />
+    <img
+      src={iconArrowBlue.src}
+      alt="arrow icon"
+      class="w-3 h-3 absolute m-auto object-contain object-center transition-opacity duration-300 opacity-100 group-hover:opacity-0"
+    />
+  </figure>
+</a>

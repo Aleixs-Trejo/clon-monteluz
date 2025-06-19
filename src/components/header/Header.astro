@@ -1,0 +1,116 @@
+---
+// Assets
+import logo from '@assets/img/logotipo-clinica-monteluz.webp';
+import logoWhite from '@assets/img/logotipo-clinica-monteluz-white.webp';
+
+import iconMenu from '@assets/icons/icon-menu-black.svg';
+import iconClose from '@assets/icons/icon-menu-close-white.svg';
+
+import iconMicroscope from '@assets/icons/icon-microscope-white.svg';
+import iconCalendar from '@assets/icons/icon-calendar-white.svg';
+
+// Components
+import NavList from './NavList.astro';
+
+---
+
+<header class="header h-22 w-full bg-white flex items-center justify-between fixed top-0 inset-x-0 z-10 transform transition-transform duration-700 ease-in-out translate-y-0">
+  <div class="w-9/10 mx-auto max-w-7xl flex items-center justify-between">
+    <a href="/" class="flex items-center w-45 flex-shrink-0">
+      <img
+        src={logo.src}
+        alt="Logo"
+        class="w-full h-auto block object-contain object-center transform transition-transform duration-300 hover:scale-[1.04]"
+      />
+    </a>
+    <button
+      type="button"
+      class="btn__menu w-8 h-8 flex items-center justify-center rounded-md cursor-pointer transition-colors duration-300 flex-shrink-0 hover:bg-gray-300 md:hidden"
+    >
+      <img
+        src={iconMenu.src}
+        alt="Menu"
+        class="img__menu w-6 h-auto block object-contain object-center"
+      />
+    </button>
+    <nav class="nav__menu fixed inset-0 w-full h-dvh md:h-max md:w-max md:static transition-all duration-300 overflow-hidden bg-nav-bg md:bg-transparent">
+      <div class="w-full mx-auto h-full py-3 max-w-7xl flex flex-col gap-6">
+        <div class="w-9/10 mx-auto flex items-center justify-between md:hidden">
+          <a href="/" class="flex items-center w-45">
+            <img
+              src={logoWhite.src}
+              alt="Logo"
+              class="w-full h-auto block object-contain object-center transform transition-transform duration-300 hover:scale-[1.04]"
+            />
+          </a>
+          <button type="button" class="btn__menu__nav w-8 h-8 flex items-center justify-center relative rounded-md cursor-pointer transition-colors duration-300 hover:bg-nav-bg-opacity">
+            <img
+              src={iconClose.src}
+              alt="Menu"
+              class="img__close w-6 h-auto block object-contain object-center absolute inset-0 m-auto transition-opacity duration-300"
+            />
+          </button>
+        </div>
+        <div class="flex flex-col gap-5 flex-grow md:flex-row">
+          <NavList />
+          <div class="flex flex-col gap-3 md:hidden">
+            <a href="#" class="text-white bg-anchor-bg-light flex items-center gap-2 rounded-tr-3xl rounded-br-3xl w-max px-6 py-2 md:rounded-2xl">
+              <img
+                src={iconMicroscope.src}
+                alt="Microscope icon"
+                class="w-4 h-4 aspect-square"
+              />
+              <span class="color-white">Resultados de Laboratorio</span>
+            </a>
+            <a href="#" class="text-white bg-anchor-bg-strong flex items-center gap-2 rounded-tr-3xl rounded-br-3xl w-max px-6 py-2 md:rounded-2xl">
+              <img
+                src={iconCalendar.src}
+                alt="Microscope icon"
+                class="w-4 h-4 aspect-square"
+              />
+              <span class="color-white">Agendar Cita</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    // DOM
+    const $header = document.querySelector('.header');
+    const $btnMenu = document.querySelector('.btn__menu');
+    const $navMenu = document.querySelector('.nav__menu');
+    const $btnMenuNav = document.querySelector('.btn__menu__nav');
+
+    // Variables
+    let lastScrollY = window.scrollY;
+
+    // Métodos
+    const handleMenu = () => {
+      $navMenu.classList.toggle('nav__menu--active');
+    }
+
+    const closeNav = () => {
+      $navMenu.classList.remove('nav__menu--active');
+    }
+
+    const handleScrollHeader = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 0) {
+        $header.classList.remove('translate-y-0');
+        $header.classList.add('-translate-y-full');
+      } else {
+        $header.classList.remove('-translate-y-full');
+        $header.classList.add('translate-y-0');
+      }
+      lastScrollY = currentScrollY;
+    };
+
+    // Events
+    $btnMenu.addEventListener('click', handleMenu);
+    $btnMenuNav.addEventListener('click', closeNav);
+    document.addEventListener('scroll', handleScrollHeader);
+  });
+</script>

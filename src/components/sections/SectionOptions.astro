@@ -1,0 +1,37 @@
+---
+// Assets
+import iconCalendar from '@assets/icons/icon-calendar-white.svg';
+import iconSede from '@assets/icons/icon-sede.white.svg';
+import iconStaff from '@assets/icons/icon-staff-white.svg';
+import iconSpeciality from '@assets/icons/icon-speciality-white.svg';
+import iconPromo from '@assets/icons/icon-promo-white.svg';
+import iconLaboratory from '@assets/icons/icon-laboratory-white.svg'
+
+// Components
+import SectionContainer from './SectionContainer.astro';
+import SimpleCardOption from '@components/SimpleCardOption.astro';
+
+// Array
+const options = [
+  { icon: iconCalendar, text: 'Agendar una Cita' },
+  { icon: iconSede, text: 'Buscar Sede' },
+  { icon: iconStaff, text: 'Staff Médico' },
+  { icon: iconSpeciality, text: 'Especialidades' },
+  { icon: iconPromo, text: 'Ver Promociones' },
+  { icon: iconLaboratory, text: 'Laboratorio' },
+];
+---
+
+<SectionContainer>
+  <div class="w-9/10 max-w-4xl mx-auto flex items-center justify-center">
+    <div class="flex flex-col gap-9 w-full">
+      <div class="flex flex-col gap-2 items-center w-full">
+        <h1 class="text-center text-clamp-hero text-paragraph font-bold anim-fade-up w-full overflow-hidden">Clínica Monteluz</h1>
+        <span class="text-center text-nav-bg font-semibold text-title-section anim-fade-up w-full overflow-hidden">¿Cómo podemos <span class="text-anchor-bg-light">ayudarte</span>?</span>
+      </div>
+      <section class="w-full grid gap-4 max-w-96 mx-auto md:max-w-none md:grid-cols-2 lg:grid-cols-3">
+        {options.map(opt => <SimpleCardOption {...opt} />)}
+      </section>
+    </div>
+  </div>
+</SectionContainer>

@@ -1,0 +1,18 @@
+---
+// Interface
+interface Props {
+  href: string;
+  text: string;
+}
+
+const { href, text } = Astro.props;
+---
+
+<li class="flex anim-fade-up">
+  <a
+    href={href}
+    class="text-nav-bg text-base transition-colors duration-300 hover:text-anchor-bg-light"
+  >
+  {text}
+  </a>
+</li>

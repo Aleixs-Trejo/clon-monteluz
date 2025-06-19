@@ -1,0 +1,19 @@
+---
+// Interface
+interface Props {
+  icon: { src: string };
+  strong?: string;
+  text: string;
+}
+
+const { icon, strong, text } = Astro.props;
+---
+
+<li class="flex items-center gap-2 anim-fade-up">
+  <img
+    src={icon.src}
+    alt="icon"
+    class="w-5 h-5 object-contain object-center"
+  />
+  <p class="text-nav-bg"><strong class="text-inherit">{strong}</strong> {text}</p>
+</li>

@@ -1,0 +1,23 @@
+---
+// Assets
+import iconLocation from "@assets/icons/icon-location-outline-blue.svg";
+import iconPhone from "@assets/icons/icon-phone-blue.svg";
+import iconMail from "@assets/icons/icon-mail-blue.svg";
+
+// Components
+import FooterElementContact from "./FooterElementContact.astro";
+
+// Array
+const contacts = [
+  { icon: iconLocation, strong: "Sede Principal:", text: " Av. Buenos Aires N° 2307, Óvalo de Zapallal - Puente Piedra" },
+  { icon: iconPhone, strong: "Central Telefónica: ", text: "(01) 550 2947" },
+  { icon: iconMail, strong: "", text: "informes@clinicamonteluz.com.pe" },
+];
+---
+
+<article class="flex flex-col gap-4 lg:flex-grow">
+  <h2 class="text-nav-bg font-semibold text-clamp-hero leading-tight py-4 anim-fade-up">Contacto</h2>
+  <ul class="flex flex-col gap-2">
+    {contacts.map(contact => <FooterElementContact {...contact} />)}
+  </ul>
+</article>
