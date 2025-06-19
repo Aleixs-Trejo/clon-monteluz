@@ -24,7 +24,7 @@
 
   --shadow-card: 1px 1px 8px 4px rgba(0, 0, 0, 0.2);
 
-  --animate-splash: splash 2.5s ease-in-out forwards;
+  --animate-splash: splash 2.5s ease-in-out both;
 
   @keyframes splash {
     0%,
