@@ -5,9 +5,10 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://aleixs-trejo.github.io',
+  base: '/clon-monteluz/',
   vite: {
     plugins: [tailwindcss()]
   },
-  site: 'https://aleixs-trejo.github.io',
-  base: 'clon-monteluz',
+  output: 'static',
 });
