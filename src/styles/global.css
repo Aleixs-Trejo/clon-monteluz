@@ -29,13 +29,13 @@
   @keyframes splash {
     0%,
     100% {
-      transform: translateY(50%);
+      transform: translateY(0);
       opacity: 0;
     }
   
     25%,
     75% {
-      transform: translateY(0);
+      transform: translateY(-50%);
       opacity: 1;
     }
   }
@@ -51,6 +51,10 @@ body:has(.nav__menu--active) {
 
 .anim-fade-up {
   @apply transform transition-all duration-500 ease-in-out;
+}
+
+.figure-splash {
+  @apply transform transition-all duration-500 ease-in-out translate-y-1/2 opacity-0;
 }
 
 .nav__menu {
